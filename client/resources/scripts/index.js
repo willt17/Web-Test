@@ -16,17 +16,65 @@ function handleEditClick()
 {
     makeEditable();
     hideButtons();
-    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleEditSave("+myBook.id+")"
+    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleEditSave("+myBook.id+")\">Save</button>";
+    buttonHtml += "<button class =\"btn btn-warning btn-lg btn-cancel\" onclick =\"handleCancelSave()\">Cancel</button>";
+    document.getElementById("saveButton").innerHTML = buttonHtml;
+    document.getElementById("saveButton").style.display = "inline-block";
+}
+function handleNewClick()
+{
+    makeEditable();
+    hideButtons();
+    blankFields();
+    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleNewSave()\">Save</button>";
+    buttonHtml += "<button class =\"btn btn-warning btn-lg btn-cancel\" onclick =\"handleCancelSave()\">Cancel</button>";
+    document.getElementById("saveButton").innerHTML = buttonHtml;
+    document.getElementById("saveButton").style.display = "inline-block";
+}
+function handleRentClick()
+{
+    myBook.numAvlb--;
+    document.getElementById("bookAvlb").value = myBook.numAvlb;
+    putBook(myBook.id);
+}
+function handleReturClick()
+{
+    myBook.numAvlb++;
+    document.getElementById("bookAvlb").value = myBook.numAvlb;
+    putBook(myBook.id);
+}
+function handleDeleteClick()
+{
+    deleteBook();
+}
+function handleCancelSave()
+{
+    populateForm();
+    makeReadOnly();
+    showButtons();
+}
+function handleEditSave(id)
+{
+    putBook(id);
+    makeReadOnly();
+    showButtons();
+}
+function handleNewSave()
+{
+    postBook();
+    makeReadOnly();
+    showButtons();
+    blankFields();
 }
 function populateForm()
 {
     document.getElementById("bookTitle").value = myBook.title;
-    document.getElementById("bookAuthor").value = myBook.author;
-    document.getElementById("bookGenre").value = myBook.genre;
-    document.getElementById("bookAvlb").value = myBook.numAvlb;
-    document.getElementById("bookIsbn").value = myBook.isbn;
-    document.getElementById("bookLength").value = myBook.length;
-    document.getElementById("bookCover").value = myBook.cover;
+    document.getElementById("author").value = myBook.author;
+    document.getElementById("genre").value = myBook.genre;
+    document.getElementById("avlb").value = myBook.numAvlb;
+    document.getElementById("isbn").value = myBook.isbn;
+    document.getElementById("length").value = myBook.length;
+    document.getElementById("cover").value = myBook.cover;
     var html = "<img class = \"coverArt\" src= \"" + myBook.cover + "\"></img>";
     document.getElementById("picBox").innerHTML = html;
 }
