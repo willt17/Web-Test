@@ -16,8 +16,8 @@ function handleEditClick()
 {
     makeEditable();
     hideButtons();
-    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleEditSave("+myBook.id+")\">Save</button>";
-    buttonHtml += "<button class =\"btn btn-warning btn-lg btn-cancel\" onclick =\"handleCancelSave()\">Cancel</button>";
+    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleEditSave("+myBook.id+")\">Save</button>"
+    buttonHtml += "<button class =\"btn btn-warning btn-lg btn-cancel\" onclick =\"handleCancelSave()\">Cancel</button>"
     document.getElementById("saveButton").innerHTML = buttonHtml;
     document.getElementById("saveButton").style.display = "inline-block";
 }
@@ -26,8 +26,8 @@ function handleNewClick()
     makeEditable();
     hideButtons();
     blankFields();
-    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleNewSave()\">Save</button>";
-    buttonHtml += "<button class =\"btn btn-warning btn-lg btn-cancel\" onclick =\"handleCancelSave()\">Cancel</button>";
+    var buttonHtml = "<button class=\"btn btn-primary btn-lg\" onclick=\"handleNewSave()\">Save</button>"
+    buttonHtml += "<button class =\"btn btn-warning btn-lg btn-cancel\" onclick =\"handleCancelSave()\">Cancel</button>"
     document.getElementById("saveButton").innerHTML = buttonHtml;
     document.getElementById("saveButton").style.display = "inline-block";
 }
@@ -35,9 +35,9 @@ function handleRentClick()
 {
     myBook.numAvlb--;
     document.getElementById("bookAvlb").value = myBook.numAvlb;
-    putBook(myBook.id);
+    putBook(id);
 }
-function handleReturClick()
+function handleReturnClick()
 {
     myBook.numAvlb++;
     document.getElementById("bookAvlb").value = myBook.numAvlb;
@@ -55,6 +55,7 @@ function handleCancelSave()
 }
 function handleEditSave(id)
 {
+    console.log(id)
     putBook(id);
     makeReadOnly();
     showButtons();
@@ -98,30 +99,30 @@ function showButtons()
 function makeEditable()
 {
     document.getElementById("bookTitle").readOnly=false;
-    document.getElementById("bookAuthor").readOnly=false;
-    document.getElementById("bookGenre").readOnly=false;
-    document.getElementById("bookAvlb").readOnly=false;
-    document.getElementById("bookIsbn").readOnly=false;
-    document.getElementById("bookLength").readOnly=false;
-    document.getElementById("bookCover").readOnly=false;
+    document.getElementById("author").readOnly=false;
+    document.getElementById("genre").readOnly=false;
+    document.getElementById("avlb").readOnly=false;
+    document.getElementById("isbn").readOnly=false;
+    document.getElementById("length").readOnly=false;
+    document.getElementById("cover").readOnly=false;
 }
 function blankFields()
 {
     document.getElementById("bookTitle").value="";
-    document.getElementById("bookAuthor").value="";
-    document.getElementById("bookGenre").value="";
-    document.getElementById("bookAvlb").value="";
-    document.getElementById("bookIsbn").value="";
-    document.getElementById("bookLength").value="";
-    document.getElementById("bookCover").value="";
+    document.getElementById("author").value="";
+    document.getElementById("genre").value="";
+    document.getElementById("avlb").value="";
+    document.getElementById("isbn").value="";
+    document.getElementById("length").value="";
+    document.getElementById("cover").value="";
 }
 function makeReadOnly()
 {
     document.getElementById("bookTitle").readOnly=true;
-    document.getElementById("bookTitle").readOnly=true;
-    document.getElementById("bookTitle").readOnly=true;
-    document.getElementById("bookTitle").readOnly=true;
-    document.getElementById("bookTitle").readOnly=true;
-    document.getElementById("bookTitle").readOnly=true;
-    document.getElementById("bookTitle").readOnly=true;
+    document.getElementById("author").readOnly=true;
+    document.getElementById("genre").readOnly=true;
+    document.getElementById("avlb").readOnly=true;
+    document.getElementById("isbn").readOnly=true;
+    document.getElementById("length").readOnly=true;
+    document.getElementById("cover").readOnly=true;
 }

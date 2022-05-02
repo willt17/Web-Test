@@ -26,12 +26,12 @@ function putBook(id){
     const sendBook = {
         id: id,
         title: document.getElementById("bookTitle").value,
-        author: document.getElementById("bookAuthor").value,
-        genre: document.getElementById("bookGenre").value,
-        numAvlb: parseInt(document.getElementById("bookAvlb").value),
-        isbn: document.getElementById("bookIsbn").value,
-        length: parseInt(document.getElementById("bookLength").value),
-        cover: document.getElementById("bookCover").value
+        author: document.getElementById("author").value,
+        genre: document.getElementById("genre").value,
+        numAvlb: parseInt(document.getElementById("avlb").value),
+        isbn: document.getElementById("isbn").value,
+        length: parseInt(document.getElementById("length").value),
+        cover: document.getElementById("cover").value
     }
     fetch(putBookApiUrl, {
         method: "PUT",
@@ -52,12 +52,12 @@ function postBook(){
     const postBookApiUrl = baseUrl;
     const sendBook = {
         title: document.getElementById("bookTitle").value,
-        author: document.getElementById("bookAuthor").value,
-        genre: document.getElementById("bookGenre").value,
-        numAvlb: parseInt(document.getElementById("bookAvlb").value),
-        isbn: document.getElementById("bookIsbn").value,
-        length: parseInt(document.getElementById("bookLength").value),
-        cover: document.getElementById("bookCover").value
+        author: document.getElementById("author").value,
+        genre: document.getElementById("genre").value,
+        numAvlb: parseInt(document.getElementById("avlb").value),
+        isbn: document.getElementById("isbn").value,
+        length: parseInt(document.getElementById("length").value),
+        cover: document.getElementById("cover").value
     }
     fetch(postBookApiUrl, {
         method: "POST",
